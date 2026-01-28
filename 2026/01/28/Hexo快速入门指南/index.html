@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hexo + Butterfly 主题快速入门指南 | 技术宅的技术博客</title><meta name="author" content="某技术宅"><meta name="copyright" content="某技术宅"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言如果你想拥有一个属于自己的技术博客，但又不想被复杂的后端代码所困扰，那么 Hexo + Butterfly 是一个绝佳的选择。本文将带你从零开始，快速搭建并运营一个专业的个人博客。 什么是 Hexo？Hexo 是一个快速、简洁且高效的静态博客框架。它的工作流程非常简单： 1写 Markdown → Hexo 编译 → 生成 HTML → 部署到服务器  核心优势：  📝 纯 Markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo + Butterfly 主题快速入门指南">
+<meta property="og:url" content="https://blog.143341.xyz/2026/01/28/Hexo%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="技术宅的技术博客">
+<meta property="og:description" content="前言如果你想拥有一个属于自己的技术博客，但又不想被复杂的后端代码所困扰，那么 Hexo + Butterfly 是一个绝佳的选择。本文将带你从零开始，快速搭建并运营一个专业的个人博客。 什么是 Hexo？Hexo 是一个快速、简洁且高效的静态博客框架。它的工作流程非常简单： 1写 Markdown → Hexo 编译 → 生成 HTML → 部署到服务器  核心优势：  📝 纯 Markdown">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.143341.xyz/%E5%A3%81%E7%BA%B8/-128677ddc405867b.jpg">
+<meta property="article:published_time" content="2026-01-28T06:35:00.000Z">
+<meta property="article:modified_time" content="2026-01-28T13:29:10.078Z">
+<meta property="article:author" content="某技术宅">
+<meta property="article:tag" content="Butterfly">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="入门指南">
+<meta property="article:tag" content="静态博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.143341.xyz/%E5%A3%81%E7%BA%B8/-128677ddc405867b.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Hexo + Butterfly 主题快速入门指南",
+  "url": "https://blog.143341.xyz/2026/01/28/Hexo%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/",
+  "image": "https://blog.143341.xyz/%E5%A3%81%E7%BA%B8/-128677ddc405867b.jpg",
+  "datePublished": "2026-01-28T06:35:00.000Z",
+  "dateModified": "2026-01-28T13:29:10.078Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "某技术宅",
+      "url": "https://blog.143341.xyz"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.143341.xyz/2026/01/28/Hexo%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo + Butterfly 主题快速入门指南',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/%E5%9B%BE%E7%89%87/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/%E5%BD%92%E6%A1%A3/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/%E6%A0%87%E7%AD%BE/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/%E5%88%86%E7%B1%BB/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/%E5%88%86%E7%B1%BB/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术笔记</span></a></div><div class="menus_item"><a class="site-page" href="/%E5%88%86%E7%B1%BB/%E7%94%9F%E6%B4%BB/"><i class="fa-fw fas fa-pen-nib"></i><span> 生活随笔</span></a></div><div class="menus_item"><a class="site-page" href="/%E5%85%B3%E4%BA%8E%E6%88%91/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/%E5%A3%81%E7%BA%B8/-128677ddc405867b.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">技术宅的技术博客</span></a><a class="nav-page-title" href="/"><span class="site-name">Hexo + Butterfly 主题快速入门指南</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/%E5%88%86%E7%B1%BB/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术笔记</span></a></div><div class="menus_item"><a class="site-page" href="/%E5%88%86%E7%B1%BB/%E7%94%9F%E6%B4%BB/"><i class="fa-fw fas fa-pen-nib"></i><span> 生活随笔</span></a></div><div class="menus_item"><a class="site-page" href="/%E5%85%B3%E4%BA%8E%E6%88%91/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Hexo + Butterfly 主题快速入门指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-28T06:35:00.000Z" title="发表于 2026-01-28 14:35:00">2026-01-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-28T13:29:10.078Z" title="更新于 2026-01-28 21:29:10">2026-01-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/%E5%88%86%E7%B1%BB/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果你想拥有一个属于自己的技术博客，但又不想被复杂的后端代码所困扰，那么 <strong>Hexo + Butterfly</strong> 是一个绝佳的选择。本文将带你从零开始，快速搭建并运营一个专业的个人博客。</p>
+<h2 id="什么是-Hexo？"><a href="#什么是-Hexo？" class="headerlink" title="什么是 Hexo？"></a>什么是 Hexo？</h2><p>Hexo 是一个快速、简洁且高效的静态博客框架。它的工作流程非常简单：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">写 Markdown → Hexo 编译 → 生成 HTML → 部署到服务器</span><br></pre></td></tr></table></figure>
+
+<p><strong>核心优势：</strong></p>
+<ul>
+<li>📝 <strong>纯 Markdown 写作</strong> - 专注内容，不用关心排版</li>
+<li>⚡ <strong>超快编译速度</strong> - 生成速度仅需数秒</li>
+<li>🎨 <strong>主题丰富</strong> - Butterfly 等精美主题任选</li>
+<li>🚀 <strong>一键部署</strong> - 支持 GitHub Pages、Vercel 等</li>
+<li>📱 <strong>响应式设计</strong> - 完美适配桌面和移动设备</li>
+</ul>
+<h2 id="项目结构速览"><a href="#项目结构速览" class="headerlink" title="项目结构速览"></a>项目结构速览</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">blog/</span><br><span class="line">├── source/              # 源文件夹（你的文章和页面都在这里）</span><br><span class="line">│   ├── _posts/         # 📝 博客文章</span><br><span class="line">│   ├── about/          # ℹ️ 关于页面</span><br><span class="line">│   ├── categories/     # 📂 分类页面</span><br><span class="line">│   ├── 图片/           # 🖼️ 文章图片</span><br><span class="line">│   └── 壁纸/           # 🌅 Banner 背景</span><br><span class="line">├── public/             # 编译后的静态网页（自动生成）</span><br><span class="line">├── themes/             # 主题文件夹</span><br><span class="line">│   └── butterfly/      # Butterfly 主题</span><br><span class="line">├── _config.yml         # Hexo 配置文件</span><br><span class="line">└── _config.butterfly.yml # Butterfly 主题配置文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="写文章的标准流程"><a href="#写文章的标准流程" class="headerlink" title="写文章的标准流程"></a>写文章的标准流程</h2><h3 id="步骤-1-创建文件"><a href="#步骤-1-创建文件" class="headerlink" title="步骤 1: 创建文件"></a>步骤 1: 创建文件</h3><p>在 <code>source/_posts/</code> 中创建一个 <code>.md</code> 文件，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source/_posts/我的第一篇文章.md</span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤-2-编写-Frontmatter"><a href="#步骤-2-编写-Frontmatter" class="headerlink" title="步骤 2: 编写 Frontmatter"></a>步骤 2: 编写 Frontmatter</h3><p>每篇文章开头必须有元数据（YAML 格式）：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">我的第一篇技术文章</span>           <span class="comment"># 文章标题（必需）</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-01-28 14:35:00</span>          <span class="comment"># 发布日期和时间</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">技术</span>                    <span class="comment"># 分类（一个）</span></span><br><span class="line"><span class="attr">tags:</span>                               <span class="comment"># 标签（可多个）</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">JavaScript</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">前端开发</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">学习笔记</span></span><br><span class="line"><span class="attr">cover:</span> <span class="string">/图片/my-cover.jpg</span>           <span class="comment"># 文章封面（可选）</span></span><br><span class="line"><span class="attr">excerpt:</span> <span class="string">这是文章摘要</span>              <span class="comment"># 首页预览摘要（可选）</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤-3-编写文章内容"><a href="#步骤-3-编写文章内容" class="headerlink" title="步骤 3: 编写文章内容"></a>步骤 3: 编写文章内容</h3><p>使用标准 Markdown 语法：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 大标题</span></span><br><span class="line"></span><br><span class="line">这是一段普通文字。</span><br><span class="line"></span><br><span class="line"><span class="section">### 小标题</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**加粗**</span> 和 <span class="emphasis">*斜体*</span> 文字。</span><br><span class="line"></span><br><span class="line"><span class="section">#### 代码块</span></span><br><span class="line"></span><br><span class="line">\<span class="code">`\`</span>\`javascript</span><br><span class="line">// JavaScript 代码示例</span><br><span class="line">const greeting = (name) =&gt; &#123;</span><br><span class="line">  console.log(\<span class="code">`Hello, \$&#123;name&#125;!\`</span>);</span><br><span class="line">&#125;;</span><br><span class="line">\<span class="code">`\`</span>\`</span><br><span class="line"></span><br><span class="line"><span class="section">#### 列表</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 项目 1</span><br><span class="line"><span class="bullet">-</span> 项目 2</span><br><span class="line"><span class="bullet">-</span> 项目 3</span><br><span class="line"></span><br><span class="line"><span class="section">#### 链接和图片</span></span><br><span class="line"></span><br><span class="line">[<span class="string">我的 GitHub</span>](<span class="link">https://github.com/qilishidai</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">文章配图</span>](<span class="link">/图片/example.jpg</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤-4-本地预览"><a href="#步骤-4-本地预览" class="headerlink" title="步骤 4: 本地预览"></a>步骤 4: 本地预览</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run server</span><br></pre></td></tr></table></figure>
+
+<p>打开浏览器访问 <code>http://localhost:4000</code>，你的新文章会立即显示在首页。</p>
+<h3 id="步骤-5-生成和部署"><a href="#步骤-5-生成和部署" class="headerlink" title="步骤 5: 生成和部署"></a>步骤 5: 生成和部署</h3><p>当文章完成后，执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清理旧文件（推荐）</span></span><br><span class="line">npm run clean</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成静态网页到 public/</span></span><br><span class="line">npm run build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署到 GitHub Pages</span></span><br><span class="line">npm run deploy</span><br></pre></td></tr></table></figure>
+
+<p>完成！你的博客已更新 🎉</p>
+<h2 id="分类-vs-标签：如何选择？"><a href="#分类-vs-标签：如何选择？" class="headerlink" title="分类 vs 标签：如何选择？"></a>分类 vs 标签：如何选择？</h2><h3 id="分类（Categories）"><a href="#分类（Categories）" class="headerlink" title="分类（Categories）"></a>分类（Categories）</h3><ul>
+<li><strong>数量</strong>：一篇文章只能有<strong>一个</strong>分类</li>
+<li><strong>用途</strong>：区分大主题（”技术” vs “生活”）</li>
+<li><strong>影响</strong>：决定导航菜单显示</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">categories:</span> <span class="string">技术</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="标签（Tags）"><a href="#标签（Tags）" class="headerlink" title="标签（Tags）"></a>标签（Tags）</h3><ul>
+<li><strong>数量</strong>：一篇文章可以有<strong>多个</strong>标签</li>
+<li><strong>用途</strong>：标记细化主题（”JavaScript”、”前端”、”异步编程”）</li>
+<li><strong>影响</strong>：帮助读者查找相关内容</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">JavaScript</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">异步编程</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Promise</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>建议</strong>：用分类来区分大方向，用标签来细化内容类型。</p>
+<h2 id="Butterfly-主题配置要点"><a href="#Butterfly-主题配置要点" class="headerlink" title="Butterfly 主题配置要点"></a>Butterfly 主题配置要点</h2><p>编辑 <code>_config.butterfly.yml</code> 来个性化你的博客：</p>
+<h3 id="导航菜单"><a href="#导航菜单" class="headerlink" title="导航菜单"></a>导航菜单</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="string">首页:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="string">技术笔记:</span> <span class="string">/categories/技术/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-code</span></span><br><span class="line">  <span class="string">生活随笔:</span> <span class="string">/categories/生活/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-pen-nib</span></span><br><span class="line">  <span class="string">关于我:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-user</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="头像和社交"><a href="#头像和社交" class="headerlink" title="头像和社交"></a>头像和社交</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="attr">img:</span> <span class="string">/图片/头像.jpg</span></span><br><span class="line">  <span class="attr">effect:</span> <span class="literal">true</span>  <span class="comment"># 悬停动画</span></span><br><span class="line"></span><br><span class="line"><span class="attr">social:</span></span><br><span class="line">  <span class="attr">fab fa-github:</span> <span class="string">https://github.com/你的用户名</span> <span class="string">||</span> <span class="string">GitHub</span></span><br><span class="line">  <span class="attr">fas fa-envelope:</span> <span class="string">mailto:你的邮箱@example.com</span> <span class="string">||</span> <span class="string">邮箱</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Banner-图片"><a href="#Banner-图片" class="headerlink" title="Banner 图片"></a>Banner 图片</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">index_img:</span> <span class="string">/壁纸/banner-1.jpg</span>      <span class="comment"># 首页 Banner</span></span><br><span class="line"><span class="attr">archive_img:</span> <span class="string">/壁纸/banner-2.jpg</span>    <span class="comment"># 归档页 Banner</span></span><br><span class="line"><span class="attr">tag_img:</span> <span class="string">/壁纸/banner-3.jpg</span>        <span class="comment"># 标签页 Banner</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="实用技巧"><a href="#实用技巧" class="headerlink" title="实用技巧"></a>实用技巧</h2><h3 id="💡-Tip-1-使用-Draft（草稿）"><a href="#💡-Tip-1-使用-Draft（草稿）" class="headerlink" title="💡 Tip 1: 使用 Draft（草稿）"></a>💡 Tip 1: 使用 Draft（草稿）</h3><p>不想发布？先存为草稿：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建草稿文件在 source/_drafts/</span></span><br><span class="line"><span class="comment"># 修改 _config.yml 中 render_drafts: true 来本地查看</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="💡-Tip-2-插入代码块时指定语言"><a href="#💡-Tip-2-插入代码块时指定语言" class="headerlink" title="💡 Tip 2: 插入代码块时指定语言"></a>💡 Tip 2: 插入代码块时指定语言</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\<span class="code">`\`</span>\`python</span><br><span class="line">def hello():</span><br><span class="line"><span class="code">    print(&quot;Hello, World!&quot;)</span></span><br><span class="line"><span class="code">\`\`\`</span></span><br></pre></td></tr></table></figure>
+
+<p>支持：<code>javascript</code>、<code>python</code>、<code>java</code>、<code>bash</code> 等多种语言。</p>
+<h3 id="💡-Tip-3-快速更新配置"><a href="#💡-Tip-3-快速更新配置" class="headerlink" title="💡 Tip 3: 快速更新配置"></a>💡 Tip 3: 快速更新配置</h3><p>修改 <code>_config.butterfly.yml</code> 后，必须重新编译：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run clean &amp;&amp; npm run build</span><br></pre></td></tr></table></figure>
+
+<p>缓存的问题大多由此产生 ⚠️</p>
+<h3 id="💡-Tip-4-使用相对路径引用图片"><a href="#💡-Tip-4-使用相对路径引用图片" class="headerlink" title="💡 Tip 4: 使用相对路径引用图片"></a>💡 Tip 4: 使用相对路径引用图片</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">示意图</span>](<span class="link">/图片/my-image.jpg</span>)</span><br><span class="line"></span><br><span class="line">&lt;!-- 图片放在 source/图片/ 目录下 --&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Q1-文章什么时候会显示在首页？"><a href="#Q1-文章什么时候会显示在首页？" class="headerlink" title="Q1: 文章什么时候会显示在首页？"></a>Q1: 文章什么时候会显示在首页？</h3><p><strong>A</strong>: 检查三点：</p>
+<ol>
+<li>✅ 文章有 <code>title:</code> 字段</li>
+<li>✅ <code>date:</code> 字段小于或等于当前时间</li>
+<li>✅ 执行了 <code>npm run build</code></li>
+</ol>
+<h3 id="Q2-修改配置后不生效？"><a href="#Q2-修改配置后不生效？" class="headerlink" title="Q2: 修改配置后不生效？"></a>Q2: 修改配置后不生效？</h3><p><strong>A</strong>: 执行 <code>npm run clean &amp;&amp; npm run build</code> 清理缓存。</p>
+<h3 id="Q3-如何删除已发布的文章？"><a href="#Q3-如何删除已发布的文章？" class="headerlink" title="Q3: 如何删除已发布的文章？"></a>Q3: 如何删除已发布的文章？</h3><p><strong>A</strong>: 删除 <code>source/_posts/</code> 中的文件，然后重新编译即可。</p>
+<h3 id="Q4-可以修改-URL-格式吗？"><a href="#Q4-可以修改-URL-格式吗？" class="headerlink" title="Q4: 可以修改 URL 格式吗？"></a>Q4: 可以修改 URL 格式吗？</h3><p><strong>A</strong>: 可以。编辑 <code>_config.yml</code> 中的 <code>permalink</code> 设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认格式</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改成简化格式</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:title/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="下一步行动"><a href="#下一步行动" class="headerlink" title="下一步行动"></a>下一步行动</h2><p>现在你已经掌握了基础知识，建议：</p>
+<ol>
+<li>✍️ <strong>写你的第一篇文章</strong> - 分享你最近学到的技术知识</li>
+<li>🎨 <strong>调整主题样式</strong> - 根据你的品味定制颜色和字体</li>
+<li>📱 <strong>测试移动适配</strong> - 在手机上查看博客效果</li>
+<li>🚀 <strong>部署上线</strong> - 让更多人看到你的内容</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>启动本地服务器</td>
+<td><code>npm run server</code></td>
+</tr>
+<tr>
+<td>编译生成网页</td>
+<td><code>npm run build</code></td>
+</tr>
+<tr>
+<td>清理缓存</td>
+<td><code>npm run clean</code></td>
+</tr>
+<tr>
+<td>部署到 GitHub</td>
+<td><code>npm run deploy</code></td>
+</tr>
+</tbody></table>
+<p>记住：<strong>Hexo 让写博客变得简单，你只需要专注于内容本身。</strong> 🚀</p>
+<hr>
+<p><strong>祝你写作愉快！如有问题，欢迎在评论区讨论。</strong></p>
+<hr>
+<p><strong>推荐资源</strong>：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://butterfly.js.org/">Butterfly 主题文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.markdownguide.org/">Markdown 语法指南</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.143341.xyz">某技术宅</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.143341.xyz/2026/01/28/Hexo%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/">https://blog.143341.xyz/2026/01/28/Hexo%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.143341.xyz" target="_blank">技术宅的技术博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/%E6%A0%87%E7%AD%BE/Hexo/">Hexo</a><a class="post-meta__tags" href="/%E6%A0%87%E7%AD%BE/Butterfly/">Butterfly</a><a class="post-meta__tags" href="/%E6%A0%87%E7%AD%BE/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/">静态博客</a><a class="post-meta__tags" href="/%E6%A0%87%E7%AD%BE/%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/">入门指南</a></div><div class="post-share"><div class="social-share" data-image="/%E5%A3%81%E7%BA%B8/-128677ddc405867b.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/01/27/%E6%96%87%E7%AB%A0%E6%A0%87%E9%A2%98/" title="我的第一篇文章"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">我的第一篇文章</div></div><div class="info-2"><div class="info-item-1">前言这是我第一次用 Hexo 写博客。 正文 我会写技术笔记 也会写生活感悟 这是长期积累的地方  结尾希望我能坚持更新。 </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/01/27/Hexo%E5%85%A5%E9%97%A8%E7%A4%BA%E4%BE%8B/" title="Hello World - Hexo 示例文章"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-27</div><div class="info-item-2">Hello World - Hexo 示例文章</div></div><div class="info-2"><div class="info-item-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/%E5%9B%BE%E7%89%87/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">某技术宅</div><div class="author-info-description">全栈开发者 | 热爱技术与开源</div><div class="site-data"><a href="/%E5%BD%92%E6%A1%A3/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/%E6%A0%87%E7%AD%BE/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/%E5%88%86%E7%B1%BB/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/qilishidai"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/qilishidai" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:qllishidai@gmail.com" target="_blank" title="邮箱"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="tencent://message/?uin=2105758776" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #0084FF;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客，分享技术与思考 🎉</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Hexo%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">什么是 Hexo？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E9%80%9F%E8%A7%88"><span class="toc-number">3.</span> <span class="toc-text">项目结构速览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E6%96%87%E7%AB%A0%E7%9A%84%E6%A0%87%E5%87%86%E6%B5%81%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">写文章的标准流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-1-%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6"><span class="toc-number">4.1.</span> <span class="toc-text">步骤 1: 创建文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-2-%E7%BC%96%E5%86%99-Frontmatter"><span class="toc-number">4.2.</span> <span class="toc-text">步骤 2: 编写 Frontmatter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-3-%E7%BC%96%E5%86%99%E6%96%87%E7%AB%A0%E5%86%85%E5%AE%B9"><span class="toc-number">4.3.</span> <span class="toc-text">步骤 3: 编写文章内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-4-%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88"><span class="toc-number">4.4.</span> <span class="toc-text">步骤 4: 本地预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-5-%E7%94%9F%E6%88%90%E5%92%8C%E9%83%A8%E7%BD%B2"><span class="toc-number">4.5.</span> <span class="toc-text">步骤 5: 生成和部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB-vs-%E6%A0%87%E7%AD%BE%EF%BC%9A%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">分类 vs 标签：如何选择？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%EF%BC%88Categories%EF%BC%89"><span class="toc-number">5.1.</span> <span class="toc-text">分类（Categories）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%EF%BC%88Tags%EF%BC%89"><span class="toc-number">5.2.</span> <span class="toc-text">标签（Tags）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Butterfly-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E8%A6%81%E7%82%B9"><span class="toc-number">6.</span> <span class="toc-text">Butterfly 主题配置要点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95"><span class="toc-number">6.1.</span> <span class="toc-text">导航菜单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%B4%E5%83%8F%E5%92%8C%E7%A4%BE%E4%BA%A4"><span class="toc-number">6.2.</span> <span class="toc-text">头像和社交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Banner-%E5%9B%BE%E7%89%87"><span class="toc-number">6.3.</span> <span class="toc-text">Banner 图片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-number">7.</span> <span class="toc-text">实用技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%A1-Tip-1-%E4%BD%BF%E7%94%A8-Draft%EF%BC%88%E8%8D%89%E7%A8%BF%EF%BC%89"><span class="toc-number">7.1.</span> <span class="toc-text">💡 Tip 1: 使用 Draft（草稿）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%A1-Tip-2-%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81%E5%9D%97%E6%97%B6%E6%8C%87%E5%AE%9A%E8%AF%AD%E8%A8%80"><span class="toc-number">7.2.</span> <span class="toc-text">💡 Tip 2: 插入代码块时指定语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%A1-Tip-3-%E5%BF%AB%E9%80%9F%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE"><span class="toc-number">7.3.</span> <span class="toc-text">💡 Tip 3: 快速更新配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%A1-Tip-4-%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87"><span class="toc-number">7.4.</span> <span class="toc-text">💡 Tip 4: 使用相对路径引用图片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">8.</span> <span class="toc-text">常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1-%E6%96%87%E7%AB%A0%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E6%98%BE%E7%A4%BA%E5%9C%A8%E9%A6%96%E9%A1%B5%EF%BC%9F"><span class="toc-number">8.1.</span> <span class="toc-text">Q1: 文章什么时候会显示在首页？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E5%90%8E%E4%B8%8D%E7%94%9F%E6%95%88%EF%BC%9F"><span class="toc-number">8.2.</span> <span class="toc-text">Q2: 修改配置后不生效？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3-%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E5%B7%B2%E5%8F%91%E5%B8%83%E7%9A%84%E6%96%87%E7%AB%A0%EF%BC%9F"><span class="toc-number">8.3.</span> <span class="toc-text">Q3: 如何删除已发布的文章？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q4-%E5%8F%AF%E4%BB%A5%E4%BF%AE%E6%94%B9-URL-%E6%A0%BC%E5%BC%8F%E5%90%97%EF%BC%9F"><span class="toc-number">8.4.</span> <span class="toc-text">Q4: 可以修改 URL 格式吗？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5%E8%A1%8C%E5%8A%A8"><span class="toc-number">9.</span> <span class="toc-text">下一步行动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">10.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/28/Hexo%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" title="Hexo + Butterfly 主题快速入门指南"><img src="/%E5%A3%81%E7%BA%B8/-128677ddc405867b.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo + Butterfly 主题快速入门指南"/></a><div class="content"><a class="title" href="/2026/01/28/Hexo%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" title="Hexo + Butterfly 主题快速入门指南">Hexo + Butterfly 主题快速入门指南</a><time datetime="2026-01-28T06:35:00.000Z" title="发表于 2026-01-28 14:35:00">2026-01-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/27/%E6%96%87%E7%AB%A0%E6%A0%87%E9%A2%98/" title="我的第一篇文章">我的第一篇文章</a><time datetime="2026-01-27T04:30:00.000Z" title="发表于 2026-01-27 12:30:00">2026-01-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/27/Hexo%E5%85%A5%E9%97%A8%E7%A4%BA%E4%BE%8B/" title="Hello World - Hexo 示例文章">Hello World - Hexo 示例文章</a><time datetime="2026-01-27T02:00:00.000Z" title="发表于 2026-01-27 10:00:00">2026-01-27</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 某技术宅</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text">本站所有文章采用 CC BY-NC-SA 4.0 协议，转载请注明出处</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
